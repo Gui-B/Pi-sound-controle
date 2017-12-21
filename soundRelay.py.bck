@@ -1,0 +1,39 @@
+#!/usr/bin/python
+from pcf8574 import PCF8574
+
+class soundrelay:
+
+    i2c_port_num = 1
+    pcf_address = 0x20
+    pcf = None
+
+    def __init__(self):
+        self.pcf = PCF8574(self.i2c_port_num, self.pcf_address)
+
+    def clear(self):
+        self.pcf.port[3] = True
+        self.pcf.port[4] = True
+        self.pcf.port[5] = True
+        self.pcf.port[6] = True
+        self.pcf.port[7] = True
+
+    def write(self, num):
+        file = open("/gpio/id", "w")
+        file.write(str(num))
+        file.close()
+
+    def set(self, num):
+        self.clear()
+        if num == 1:
+            self.pcf.port[3] = False
+        elif num == 2:
+            self.pcf.port[4] = False
+        elif num == 3:
+            self.pcf.port[5] = False
+        elif num == 4:
+            self.pcf.port[6] = False
+        elif num == 5:
+            self.pcf.port[7] = False
+        self.write(num)
+
+
