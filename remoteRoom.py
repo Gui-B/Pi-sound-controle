@@ -23,8 +23,8 @@ while True:
         s.set(5)
     elif btn.port[5] is False:
         lcd16 = lcd.lcd(0x3f)
-        lcd20 = lcd.lcd(0x27)
+        #lcd20 = lcd.lcd(0x27)
         lcd16.backlight(0)
-        lcd20.backlight(0)
+        #lcd20.backlight(0)
     sleep(0.1)
 

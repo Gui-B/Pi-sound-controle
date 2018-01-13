@@ -39,9 +39,9 @@ class soundrelay:
         oldnum = self.read()
         if oldnum != num:
             lcd16 = lcd.lcd(0x3f)
-            lcd20 = lcd.lcd(0x27)
+            #lcd20 = lcd.lcd(0x27)
             lcd16.backlight(1)
-            lcd20.backlight(1)
+            #lcd20.backlight(1)
             self.clear()
             name = ""
             if num == 1:
@@ -61,12 +61,12 @@ class soundrelay:
                 self.pcf.port[7] = False
             self.write(num, name)
             lcd16.printlcd("Source : " + name, 1)
-            lcd20.printlcd("Source : " + name, 1)
+            #lcd20.printlcd("Source : " + name, 1)
         else:
             lcd16 = lcd.lcd(0x3f)
-            lcd20 = lcd.lcd(0x27)
+            #lcd20 = lcd.lcd(0x27)
             lcd16.backlight(1)
-            lcd20.backlight(1)
+            #lcd20.backlight(1)
             name = ""
             if num == 1:
                 name = "Salon"
@@ -79,7 +79,7 @@ class soundrelay:
             elif num == 5:
                 name = "Cyke"
             lcd16.printlcd("Source : " + name, 1)
-            lcd20.printlcd("Source : " + name, 1)
+            #lcd20.printlcd("Source : " + name, 1)
         #lcd16.printlcd(name, 2)
 
 
